@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LifeStyle Store - phones, laptops, fashion, home and more with an AI shopping assistant.">
+    <meta name="color-scheme" content="light dark">
+    <title>LifeStyle Store</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#app">Skip to content</a>
+<header class="site-header">
+    <div class="container bar">
+        <a class="brand" href="#/" aria-label="LifeStyle Store home"><span class="brand-mark" aria-hidden="true">LS</span><span class="brand-name">LifeStyle Store</span></a>
+        <form id="search-form" class="search" role="search">
+            <input id="search-input" type="search" maxlength="60" placeholder="Search for phones, shoes, watches, brands&hellip;" aria-label="Search products" autocomplete="off">
+            <button type="submit" class="search-btn" aria-label="Search">&#128269;</button>
+        </form>
+        <nav id="nav" aria-label="Main"></nav>
+    </div>
+    <div class="strip-wrap"><div id="category-strip" class="container strip" aria-label="Departments"></div></div>
+</header>
+
+<main id="app" class="container" tabindex="-1"></main>
+
+<footer class="site-footer">
+    <div class="container foot-grid">
+        <div>
+            <strong>LifeStyle Store</strong>
+            <p class="muted">A demo store built with Spring Boot, MongoDB and Claude. No real payments or data.</p>
+        </div>
+        <div>
+            <strong>Shop</strong>
+            <p><a href="#/products?category=MOBILES">Mobiles</a> &middot; <a href="#/products?category=LAPTOPS">Laptops</a> &middot; <a href="#/products?category=MENS_CLOTHING">Fashion</a> &middot; <a href="#/products?sort=DISCOUNT">Deals</a></p>
+        </div>
+        <div>
+            <strong>Help</strong>
+            <p class="muted">Free delivery above &#8377;499 &middot; 7-day returns &middot; Secure checkout</p>
+            <p><a href="/image-credits.html">Image credits</a></p>
+        </div>
+    </div>
+</footer>
+
+<div id="toasts" role="status" aria-live="polite"></div>
+
+<noscript><p class="container">This store needs JavaScript enabled.</p></noscript>
+</body>
+</html>

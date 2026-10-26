@@ -1,0 +1,10 @@
+target/
+.idea/
+*.iml
+.vscode/
+.env
+*.pem
+*.key
+credentials*
+secrets*
+!k8s/secret.example.yaml

@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: lifestylestore
+  config:
+    # Local development: read secrets from a gitignored .env in the working directory (KEY=VALUE lines).
+    # Optional, so containers and CI that inject real environment variables are unaffected.
+    import: optional:file:./.env[.properties]
+  mongodb:
+    uri: ${MONGODB_URI:mongodb://localhost:27017/lifestylestore}
+  data:
+    mongodb:
+      auto-index-creation: true
+  jackson:
+    default-property-inclusion: non_null
+
+logging:
+  pattern:
+    correlation: "[%X{requestId:-}] "
+
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  security:
+    # Required, >= 32 chars. Startup fails if missing (no insecure default).
+    jwt-secret: ${JWT_SECRET:}
+    jwt-ttl-minutes: 60
+    auth-rate-limit-per-minute: 10
+  assistant:
+    api-key: ${ANTHROPIC_API_KEY:}
+    model: ${ANTHROPIC_MODEL:claude-haiku-5-5}
+    base-url: https://api.anthropic.com
+    rate-limit-per-minute: 8
+
+springdoc:
+  api-docs:
+    enabled: ${OPENAPI_ENABLED:true}
+  swagger-ui:
+    enabled: ${OPENAPI_ENABLED:true}
